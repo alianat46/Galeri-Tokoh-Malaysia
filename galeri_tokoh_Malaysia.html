@@ -1,0 +1,1140 @@
+
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>Galeri Tokoh Malaysia</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fefefe;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      font-size: 36px;
+      color: #333;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .card {
+      width: 220px;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .card-title {
+      padding: 10px;
+      font-weight: bold;
+      background-color: #f0f0f0;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      width: 90%;
+      text-align: left;
+      position: relative;
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Galeri Tokoh Malaysia</h1>
+
+<div class="gallery">
+  <div class="card" onclick="showPopup('tunku')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Tunku_Abdul_Rahman_1960s.jpg" alt="Tunku Abdul Rahman">
+    <div class="card-title">Tunku Abdul Rahman</div>
+  </div>
+
+  <div class="card" onclick="showPopup('razak')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Tun_Abdul_Razak_1970s.jpg" alt="Tun Razak">
+    <div class="card-title">Tun Abdul Razak</div>
+  </div>
+
+  <div class="card" onclick="showPopup('hussein')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Tun_Hussein_Onn.jpg" alt="Tun Hussein Onn">
+    <div class="card-title">Tun Hussein Onn</div>
+  </div>
+
+  <div class="card" onclick="showPopup('mahathir')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Mahathir_Mohamad_2002.jpg" alt="Tun Mahathir">
+    <div class="card-title">Tun Dr. Mahathir</div>
+  </div>
+  <div class="card" onclick="showPopup('abdullah')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Tun_Abdullah_Ahmad_Badawi_2005.jpg" alt="Tun Abdullah Badawi">
+    <div class="card-title">Tun Abdullah Badawi</div>
+  </div>
+
+  <div class="card" onclick="showPopup('najib')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Najib_Razak_2008.jpg" alt="Najib Razak">
+    <div class="card-title">Najib Razak</div>
+  </div>
+
+<div class="card" onclick="showPopup('fatimah')">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Tun_Fatimah_Lukisan.jpg" alt="Tun Fatimah">
+  <div class="card-title">Tun Fatimah</div>
+</div>
+
+<div class="card" onclick="showPopup('janggut')">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Tok_Janggut_portrait.jpg/800px-Tok_Janggut_portrait.jpg" alt="Tok Janggut">
+  <div class="card-title">Tok Janggut</div>
+</div>
+<div class="card" onclick="showPopup('kilau')">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Mat_Kilau_hero_Malaysia.jpg/640px-Mat_Kilau_hero_Malaysia.jpg" alt="Mat Kilau">
+  <div class="card-title">Mat Kilau</div>
+</div>
+<div class="card" onclick="showPopup('maharaja')">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Dato_Maharajalela.jpg" alt="Dato Maharaja Lela">
+  <div class="card-title">Dato Maharaja Lela</div>
+</div>
+
+<div class="card" onclick="showPopup('teja')">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Makam_Tun_Teja_Melaka.jpg/800px-Makam_Tun_Teja_Melaka.jpg" alt="Tun Teja">
+<div class="card-title">Tun Teja</div>
+</div>
+
+</div>
+
+<!-- Popup Tunku -->
+<div class="popup" id="popup-tunku">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('tunku')">&times;</span>
+    <h2>Tunku Abdul Rahman</h2>
+    <p><strong>Jawatan:</strong> Perdana Menteri Malaysia Pertama (1957–1970)</p>
+    <p style="font-style: italic; color: #333; background: #f0f8ff; padding: 12px 15px; border-left: 5px solid #0066cc; border-radius: 8px; margin-top: 20px;">
+      "We are all Malaysians. This is the bond that unites us. Let us always remember that unity is our fundamental strength as a people and as a nation."  
+      <br>– <strong>Tunku Abdul Rahman</strong>
+    </p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Tunku_Abdul_Rahman_1960.jpg" alt="Tunku Abdul Rahman" style="width: 100%; max-width: 400px; border: 4px solid #0066cc; border-radius: 12px; margin: 15px auto; display: block;">
+    <h3>📅 Kronologi Kehidupan:</h3>
+    <ul style="padding-left: 20px;">
+      <li><strong>1903:</strong> Dilahirkan di Alor Setar, Kedah</li>
+      <li><strong>1920-an:</strong> Menuntut di Cambridge University, United Kingdom</li>
+      <li><strong>1951:</strong> Jadi Presiden UMNO</li>
+      <li><strong>1957:</strong> Isytihar Kemerdekaan Malaysia</li>
+      <li><strong>1963:</strong> Membentuk Persekutuan Malaysia</li>
+      <li><strong>1970:</strong> Bersara sebagai Perdana Menteri</li>
+      <li><strong>1990:</strong> Meninggal dunia di Kuala Lumpur</li>
+    </ul>
+    <h3>❓ Fakta Menarik:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Digelar "Bapa Kemerdekaan" & "Bapa Malaysia"</li>
+      <li>Pernah belajar di Cambridge University, United Kingdom</li>
+      <li>Suka bermain golf dan menulis</li>
+      <li>Ayahanda beliau ialah Sultan Kedah ke-24</li>
+    </ul>
+    <p><strong>Sumbangan:</strong> Tunku Abdul Rahman memainkan peranan penting dalam memimpin perundingan dengan pihak British sehingga Malaysia mencapai kemerdekaan pada 31 Ogos 1957. Beliau juga berperanan besar dalam pembentukan Malaysia pada tahun 1963. Di bawah kepimpinannya, dasar perpaduan antara kaum digerakkan melalui prinsip toleransi dan kerjasama antara kaum.</p>
+    <p><strong>Kata-Kata Ikonik:</strong> "Merdeka! Merdeka! Merdeka!"</p>
+    <h3>🖼️ Gambar Bersejarah:</h3>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Merdeka_1957_tunku_abdul_rahman.jpg" alt="Tunku Ucap Merdeka" style="width: 48%; border-radius: 8px;">
+      <img src="https://www.arkib.gov.my/images/pemerolehan-rekod-bukan-awam/menyambut-kepulangan/kepulangan-4.png" alt="Kepulangan Tunku" style="width: 48%; border-radius: 8px;">
+    </div>
+    <h3>🎥 Ucapan Merdeka (Video)</h3>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/X54V5T9srEQ" title="Ucapan Merdeka Tunku" frameborder="0" allowfullscreen></iframe>
+<h3>🧠 Kuiz Tunku Abdul Rahman</h3>
+<p>Jawab semua soalan di bawah dan tekan butang semak!</p>
+
+<div id="quiz-tunku" style="max-width: 500px; padding: 10px; background: #f9f9f9; border-radius: 10px;">
+  <div style="margin-bottom: 15px;">
+    <p><strong>1. Apakah gelaran Tunku Abdul Rahman?</strong></p>
+    <label><input type="radio" name="q1" value="A"> Bapa Pembangunan</label><br>
+    <label><input type="radio" name="q1" value="B"> Bapa Kemerdekaan</label><br>
+    <label><input type="radio" name="q1" value="C"> Bapa Malaysia Baru</label>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <p><strong>2. Bilakah Malaysia mencapai kemerdekaan?</strong></p>
+    <label><input type="radio" name="q2" value="A"> 1955</label><br>
+    <label><input type="radio" name="q2" value="B"> 1957</label><br>
+    <label><input type="radio" name="q2" value="C"> 1963</label>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <p><strong>3. Di manakah Tunku menuntut pelajaran tinggi?</strong></p>
+    <label><input type="radio" name="q3" value="A"> Harvard University</label><br>
+    <label><input type="radio" name="q3" value="B"> University of Malaya</label><br>
+    <label><input type="radio" name="q3" value="C"> Cambridge University</label>
+  </div>
+
+  <button onclick="semakKuizTunku()" style="padding: 10px; border-radius: 5px; background-color: #0066cc; color: white; border: none;">✅ Semak Jawapan</button>
+
+  <p id="result-kuiz-tunku" style="font-weight: bold; margin-top: 15px;"></p>
+</div>
+
+  </div>
+</div>
+
+<!-- Popup Razak -->
+<div class="popup" id="popup-razak">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('razak')">&times;</span>
+    <h2>Tun Abdul Razak</h2>
+    <p><strong>Jawatan:</strong> Perdana Menteri Kedua (1970–1976)</p>
+    <p style="font-style: italic; color: #333; background: #f0f8ff; padding: 12px 15px; border-left: 5px solid #009933; border-radius: 8px; margin-top: 20px;">
+      "We must ensure that no one in Malaysia is left behind in the journey towards progress and unity."  
+      <br>– <strong>Tun Abdul Razak</strong>
+    </p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/Tun_Abdul_Razak_Universiti_%284to3%29.jpg" alt="Tun Abdul Razak" style="width: 100%; max-width: 400px; border: 4px solid #009933; border-radius: 12px; margin: 15px auto; display: block;">
+    <h3>📅 Kronologi Kehidupan:</h3>
+    <ul style="padding-left: 20px;">
+      <li><strong>1922:</strong> Dilahirkan di Pekan, Pahang</li>
+      <li><strong>1940-an:</strong> Menuntut di Raffles College dan Lincoln’s Inn, London</li>
+      <li><strong>1950:</strong> Sertai UMNO dan dilantik sebagai Menteri Pelajaran</li>
+      <li><strong>1957:</strong> Timbalan Perdana Menteri kepada Tunku Abdul Rahman</li>
+      <li><strong>1970:</strong> Menjadi Perdana Menteri ke-2 Malaysia</li>
+      <li><strong>1971:</strong> Memperkenalkan Dasar Ekonomi Baru (DEB)</li>
+      <li><strong>1976:</strong> Meninggal dunia di London</li>
+    </ul>
+    <h3>❇️ Sumbangan Penting:</h3>
+    <ul style="padding-left: 20px;">
+      <li><strong>Dasar Ekonomi Baru (DEB)</strong></li>
+      <li><strong>Pengasas FELDA</strong></li>
+      <li><strong>Pendidikan luar bandar</strong></li>
+      <li><strong>Hubungan diplomatik dengan China</strong></li>
+      <li><strong>Rancangan Malaysia Kedua (RMK-2)</strong></li>
+    </ul>
+    <h3>❓ Fakta Menarik:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Digelar "Bapa Pembangunan"</li>
+      <li>Bapa kepada PM ke-6, Datuk Seri Najib Razak</li>
+      <li>Arkitek utama Dasar Ekonomi Baru</li>
+    </ul>
+<h3>🎥 Video Berkaitan:</h3>
+<iframe width="100%" height="250" src="https://www.youtube.com/embed/PJworhyHklU?si=rAlVTHgYygunoGCT" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+<h3>🧠 Kuiz Tun Abdul Razak</h3>
+<form id="kuiz-razak">
+  <p>1. Apakah gelaran yang diberikan kepada Tun Abdul Razak?</p>
+  <label><input type="radio" name="q1" value="a"> Bapa Kemerdekaan</label><br>
+  <label><input type="radio" name="q1" value="b"> Bapa Pembangunan</label><br>
+  <label><input type="radio" name="q1" value="c"> Bapa Reformasi</label><br><br>
+
+  <p>2. Bilakah Tun Abdul Razak memperkenalkan Dasar Ekonomi Baru (DEB)?</p>
+  <label><input type="radio" name="q2" value="a"> 1963</label><br>
+  <label><input type="radio" name="q2" value="b"> 1971</label><br>
+  <label><input type="radio" name="q2" value="c"> 1976</label><br><br>
+
+  <p>3. Siapakah anak kepada Tun Abdul Razak yang juga menjadi Perdana Menteri?</p>
+  <label><input type="radio" name="q3" value="a"> Anwar Ibrahim</label><br>
+  <label><input type="radio" name="q3" value="b"> Muhyiddin Yassin</label><br>
+  <label><input type="radio" name="q3" value="c"> Najib Razak</label><br><br>
+
+  <button type="button" onclick="semakKuizRazak()">Semak Jawapan</button>
+</form>
+<div id="skor-razak" style="margin-top: 10px; font-weight: bold;"></div>
+
+  </div>
+</div>
+<!-- Popup Hussein -->
+<div class="popup" id="popup-hussein">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('hussein')">&times;</span>
+    <h2>Tun Hussein Onn</h2>
+
+    <p><strong>Jawatan:</strong> Perdana Menteri Ketiga Malaysia (1976–1981)</p>
+
+    <p style="font-style: italic; color: #333; background: #f0f8ff; padding: 12px 15px; border-left: 5px solid #0066aa; border-radius: 8px; margin-top: 20px;">
+      "The unity of our people must always remain our highest priority."<br>
+      – <strong>Tun Hussein Onn</strong>
+    </p>
+
+    <img src="https://upload.wikimedia.org/wikipedia/en/1/12/Tun_Hussein_Onn.jpg" 
+         alt="Tun Hussein Onn" 
+         style="width: 100%; max-width: 400px; border: 4px solid #0066aa; border-radius: 12px; margin: 15px auto; display: block;">
+
+    <h3>📅 Kronologi Kehidupan:</h3>
+    <ul style="padding-left: 20px;">
+      <li><strong>1922:</strong> Dilahirkan di Johor Bahru</li>
+      <li><strong>1940-an:</strong> Menyertai tentera dan menuntut dalam bidang undang-undang</li>
+      <li><strong>1950:</strong> Menyertai UMNO</li>
+      <li><strong>1973:</strong> Dilantik Timbalan Perdana Menteri</li>
+      <li><strong>1976:</strong> Menjadi Perdana Menteri ke-3 selepas kematian Tun Abdul Razak</li>
+      <li><strong>1981:</strong> Bersara dan diganti oleh Tun Dr Mahathir Mohamad</li>
+      <li><strong>1990:</strong> Meninggal dunia di San Francisco, Amerika Syarikat</li>
+    </ul>
+
+    <h3>❇️ Sumbangan Penting:</h3>
+    <ul style="padding-left: 20px;">
+      <li><strong>Perpaduan Kaum:</strong> Dikenali sebagai "Bapa Perpaduan" kerana usaha gigihnya menyatukan rakyat Malaysia selepas peristiwa 13 Mei 1969.</li>
+      <li><strong>Integriti dan Ketegasan:</strong> Tegas dalam soal rasuah dan ketelusan dalam pentadbiran kerajaan.</li>
+      <li><strong>Pendidikan:</strong> Menekankan pentingnya pendidikan dan perpaduan dalam sistem pendidikan negara.</li>
+    </ul>
+
+    <h3>❓ Fakta Menarik:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Anak kepada Dato' Onn Jaafar, pengasas UMNO</li>
+      <li>Mempunyai latar belakang ketenteraan</li>
+      <li>Pernah belajar di Lincoln's Inn, London</li>
+      <li>Digelar sebagai <strong>"Bapa Perpaduan"</strong></li>
+    </ul>
+<h3>🎥 Video Berkaitan:</h3>
+<iframe width="100%" height="250" src="https://www.youtube.com/embed/wRtsCUp6nYU?si=x28zVFikq1x8l5K9" title="Video Tun Hussein Onn" frameborder="0" allowfullscreen></iframe>
+<h3>🧠 Kuiz Tun Hussein Onn</h3>
+<form id="kuiz-hussein">
+  <p>1. Apakah jawatan Tun Hussein Onn?</p>
+  <label><input type="radio" name="q1-hussein" value="a"> Perdana Menteri Pertama</label><br>
+  <label><input type="radio" name="q1-hussein" value="b"> Perdana Menteri Ketiga</label><br>
+  <label><input type="radio" name="q1-hussein" value="c"> Menteri Pendidikan</label><br><br>
+
+  <p>2. Tahun bilakah Tun Hussein Onn mula menjadi Perdana Menteri?</p>
+  <label><input type="radio" name="q2-hussein" value="a"> 1976</label><br>
+  <label><input type="radio" name="q2-hussein" value="b"> 1981</label><br>
+  <label><input type="radio" name="q2-hussein" value="c"> 1969</label><br><br>
+
+  <p>3. Apakah gelaran yang sering dikaitkan dengan Tun Hussein Onn?</p>
+  <label><input type="radio" name="q3-hussein" value="a"> Bapa Kemerdekaan</label><br>
+  <label><input type="radio" name="q3-hussein" value="b"> Bapa Perpaduan</label><br>
+  <label><input type="radio" name="q3-hussein" value="c"> Bapa Ekonomi</label><br><br>
+
+  <button type="button" onclick="semakKuizHussein()">Semak Jawapan</button>
+</form>
+<div id="skor-hussein" style="margin-top: 10px; font-weight: bold;"></div>
+
+  </div>
+</div>
+<!-- Popup Mahathir -->
+<div class="popup" id="popup-mahathir">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('mahathir')">&times;</span>
+    <h2>Tun Dr. Mahathir Mohamad</h2>
+
+    <p><strong>Jawatan:</strong> Perdana Menteri ke-4 (1981–2003) & ke-7 (2018–2020)</p>
+    <p style="font-style: italic; color: #333; background: #f0f8ff; padding: 12px 15px; border-left: 5px solid #990000; border-radius: 8px; margin-top: 20px;">
+      "Melayu mudah lupa."  
+      <br>– <strong>Tun Dr. Mahathir</strong>
+    </p>
+
+    <img src="https://www.kabinet.gov.my/bkpp/images/mantan_pm/04_tun_mahathir_mohamad.png" 
+         alt="Tun Mahathir" 
+         style="width: 100%; max-width: 400px; border: 4px solid #990000; border-radius: 12px; margin: 15px auto; display: block;">
+
+    <h3>📅 Kronologi Kehidupan:</h3>
+    <ul style="padding-left: 20px;">
+      <li><strong>1925:</strong> Dilahirkan di Alor Setar, Kedah</li>
+      <li><strong>1950-an:</strong> Tamat pengajian perubatan di King Edward VII College, Singapura</li>
+      <li><strong>1964:</strong> Menjadi Ahli Parlimen Kota Setar</li>
+      <li><strong>1981:</strong> Dilantik sebagai Perdana Menteri ke-4</li>
+      <li><strong>2003:</strong> Bersara selepas 22 tahun menjadi PM</li>
+      <li><strong>2018:</strong> Kembali sebagai Perdana Menteri ke-7 selepas PRU-14</li>
+      <li><strong>2020:</strong> Letak jawatan buat kali kedua</li>
+    </ul>
+
+    <h3>❇️ Sumbangan Penting:</h3>
+    <ul style="padding-left: 20px;">
+      <li><strong>Wawasan 2020:</strong> Merancang hala tuju Malaysia untuk menjadi negara maju menjelang tahun 2020</li>
+      <li><strong>Perindustrian:</strong> Mendorong pembangunan industri berat seperti PROTON</li>
+      <li><strong>Infrastruktur:</strong> Pembangunan Menara KL, KLIA, Putrajaya dan Multimedia Super Corridor (MSC)</li>
+      <li><strong>Pendidikan:</strong> Menubuhkan universiti tempatan seperti MMU dan UIA</li>
+      <li><strong>Dasar Pandang ke Timur:</strong> Menggalakkan budaya kerja cemerlang dari Jepun & Korea</li>
+    </ul>
+
+    <h3>❓ Fakta Menarik:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Perdana Menteri paling lama berkhidmat di Malaysia (22 tahun + 22 bulan)</li>
+      <li>Menulis buku popular <em>"The Malay Dilemma"</em></li>
+      <li>Doktor perubatan sebelum masuk politik</li>
+    </ul>
+
+<iframe width="100%" height="250" src="https://www.youtube.com/embed/zLALO8wjdFI" title="Video Tun Dr. Mahathir" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<h3>🧠 Kuiz Tun Dr. Mahathir</h3>
+<form id="kuiz-mahathir">
+  <p>1. Berapa kali Tun Mahathir menjadi Perdana Menteri Malaysia?</p>
+  <label><input type="radio" name="q1-mahathir" value="a"> Sekali</label><br>
+  <label><input type="radio" name="q1-mahathir" value="b"> Dua kali</label><br>
+  <label><input type="radio" name="q1-mahathir" value="c"> Tiga kali</label><br><br>
+
+  <p>2. Dalam tahun berapakah Tun Mahathir mula menjadi Perdana Menteri buat kali pertama?</p>
+  <label><input type="radio" name="q2-mahathir" value="a"> 1981</label><br>
+  <label><input type="radio" name="q2-mahathir" value="b"> 1999</label><br>
+  <label><input type="radio" name="q2-mahathir" value="c"> 2003</label><br><br>
+
+  <p>3. Parti manakah yang diasaskan oleh Tun Mahathir selepas keluar dari UMNO?</p>
+  <label><input type="radio" name="q3-mahathir" value="a"> PKR</label><br>
+  <label><input type="radio" name="q3-mahathir" value="b"> BERSATU</label><br>
+  <label><input type="radio" name="q3-mahathir" value="c"> PAS</label><br><br>
+
+  <button type="button" onclick="semakKuizMahathir()">Semak Jawapan</button>
+</form>
+<div id="skor-mahathir" style="margin-top: 10px; font-weight: bold;"></div>
+
+
+  </div>
+</div>
+<!-- Popup Abdullah -->
+<div class="popup" id="popup-abdullah">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('abdullah')">&times;</span>
+    <h2>Tun Abdullah Ahmad Badawi</h2>
+
+    <p><strong>Jawatan:</strong> Perdana Menteri ke-5 (2003–2009)</p>
+    <p style="font-style: italic; background: #f0f8ff; padding: 12px 15px; border-left: 5px solid #006699; border-radius: 8px;">
+      "Work with me, not for me."  
+      <br>– <strong>Tun Abdullah Badawi</strong>
+    </p>
+
+    <img src="https://www.kabinet.gov.my/bkpp/images/mantan_pm/05_tun_abdullah_ahmad_badawi.png" 
+         alt="Tun Abdullah Badawi" 
+         style="width: 100%; max-width: 400px; border: 4px solid #006699; border-radius: 12px; margin: 15px auto; display: block;">
+
+    <h3>📅 Kronologi Kehidupan:</h3>
+    <ul style="padding-left: 20px;">
+      <li><strong>1939:</strong> Dilahirkan di Bayan Lepas, Pulau Pinang</li>
+      <li><strong>1960-an:</strong> Mula berkhidmat sebagai pegawai kerajaan</li>
+      <li><strong>1978:</strong> Menjadi Ahli Parlimen Kepala Batas</li>
+      <li><strong>1999:</strong> Timbalan Perdana Menteri</li>
+      <li><strong>2003:</strong> Gantikan Tun Mahathir sebagai Perdana Menteri</li>
+      <li><strong>2009:</strong> Letak jawatan dan digantikan oleh Najib</li>
+<li><strong>2025:</strong> Meninggal dunia</li>
+    </ul>
+
+    <h3>❇️ Sumbangan:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Memperkenalkan konsep **Islam Hadhari**</li>
+      <li>Memperkukuh sistem integriti dan ketelusan dalam pentadbiran</li>
+      <li>Melaksanakan pembangunan luar bandar dan pendidikan</li>
+    </ul>
+
+    <h3>❓ Fakta Menarik:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Pernah menjadi Menteri Luar dan Menteri Pendidikan</li>
+      <li>Dikenali dengan pendekatan sederhana dan diplomatik</li>
+      <li>Digelar “Pak Lah” oleh rakyat Malaysia</li>
+    </ul>
+<h3>🎥 Video Tun Abdullah Badawi</h3>
+<iframe width="100%" height="250" src="https://www.youtube.com/embed/Nh0gcBQAa1M" title="Tun Abdullah Badawi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h3>🧠 Kuiz Tun Abdullah Badawi</h3>
+<form id="kuiz-abdullah">
+  <p>1. Bilakah Tun Abdullah Badawi menjadi Perdana Menteri Malaysia?</p>
+  <label><input type="radio" name="q1-abdullah" value="a"> 2003</label><br>
+  <label><input type="radio" name="q1-abdullah" value="b"> 1999</label><br>
+  <label><input type="radio" name="q1-abdullah" value="c"> 2009</label><br><br>
+
+  <p>2. Apakah nama rancangan pembangunan yang diperkenalkan semasa pentadbiran beliau?</p>
+  <label><input type="radio" name="q2-abdullah" value="a"> Wawasan 2020</label><br>
+  <label><input type="radio" name="q2-abdullah" value="b"> Rancangan Malaysia Ke-9</label><br>
+  <label><input type="radio" name="q2-abdullah" value="c"> DEB</label><br><br>
+
+  <p>3. Apakah gelaran yang sering dikaitkan dengan Tun Abdullah Badawi?</p>
+  <label><input type="radio" name="q3-abdullah" value="a"> Bapa Pembangunan</label><br>
+  <label><input type="radio" name="q3-abdullah" value="b"> Bapa Reformasi</label><br>
+  <label><input type="radio" name="q3-abdullah" value="c"> Bapa Pembangunan Modal Insan</label><br><br>
+
+  <button type="button" onclick="semakKuizAbdullah()">Semak Jawapan</button>
+</form>
+<div id="skor-abdullah" style="margin-top: 10px; font-weight: bold;"></div>
+
+  </div>
+</div>
+<!-- Popup Najib -->
+<div class="popup" id="popup-najib">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('najib')">&times;</span>
+    <h2>Datuk Seri Najib Razak</h2>
+
+    <p><strong>Jawatan:</strong> Perdana Menteri ke-6 (2009–2018)</p>
+    <p style="font-style: italic; background: #f0f8ff; padding: 12px 15px; border-left: 5px solid #cc0000; border-radius: 8px;">
+      "Rakyat didahulukan, pencapaian diutamakan."  
+      <br>– <strong>Najib Razak</strong>
+    </p>
+
+    <img src="https://www.kabinet.gov.my/bkpp/images/mantan_pm/06_dato_seri_najib_tun_razak.png" 
+         alt="Najib Razak" 
+         style="width: 100%; max-width: 400px; border: 4px solid #cc0000; border-radius: 12px; margin: 15px auto; display: block;">
+
+    <h3>📅 Kronologi Kehidupan:</h3>
+    <ul style="padding-left: 20px;">
+      <li><strong>1953:</strong> Dilahirkan di Kuala Lipis, Pahang</li>
+      <li><strong>1976:</strong> Menjadi Ahli Parlimen termuda (usia 23)</li>
+      <li><strong>2004:</strong> Timbalan Perdana Menteri</li>
+      <li><strong>2009:</strong> Menjadi Perdana Menteri Malaysia</li>
+      <li><strong>2018:</strong> Kalah dalam Pilihan Raya Umum ke-14</li>
+    </ul>
+
+    <h3>❇️ Sumbangan:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Perkenal **transformasi kerajaan (GTP, ETP, NKEA)**</li>
+      <li>Menubuhkan 1Malaysia & BR1M</li>
+      <li>Perluaskan pendidikan prasekolah dan bantuan rakyat</li>
+    </ul>
+
+    <h3>❓ Fakta Menarik:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Anak kepada Tun Abdul Razak (PM ke-2)</li>
+      <li>Mula masuk politik selepas kematian ayahnya</li>
+      <li>Tokoh kontroversi melibatkan isu 1MDB</li>
+    </ul>
+<h3>🎥 Video Najib Razak</h3>
+<iframe width="100%" height="250" src="https://www.youtube.com/embed/Krqsf-9YfB8" 
+title="Najib Razak Video" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+<h3>🧠 Kuiz Najib Razak</h3>
+<form id="kuiz-najib">
+  <p>1. Apakah slogan utama pentadbiran Najib Razak?</p>
+  <label><input type="radio" name="q1-najib" value="a"> 1Malaysia</label><br>
+  <label><input type="radio" name="q1-najib" value="b"> Malaysia Madani</label><br>
+  <label><input type="radio" name="q1-najib" value="c"> Malaysia Baharu</label><br><br>
+
+  <p>2. Najib Razak memegang jawatan Perdana Menteri Malaysia ke-berapa?</p>
+  <label><input type="radio" name="q2-najib" value="a"> Ke-6</label><br>
+  <label><input type="radio" name="q2-najib" value="b"> Ke-5</label><br>
+  <label><input type="radio" name="q2-najib" value="c"> Ke-7</label><br><br>
+
+  <p>3. Tahun berapakah Najib Razak menjadi Perdana Menteri?</p>
+  <label><input type="radio" name="q3-najib" value="a"> 2009</label><br>
+  <label><input type="radio" name="q3-najib" value="b"> 2003</label><br>
+  <label><input type="radio" name="q3-najib" value="c"> 2013</label><br><br>
+
+  <button type="button" onclick="semakKuizNajib()">Semak Jawapan</button>
+</form>
+<div id="skor-najib" style="margin-top: 10px; font-weight: bold;"></div>
+
+  </div>
+</div>
+<!-- Popup Tun Fatimah -->
+<div class="popup" id="popup-fatimah">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('fatimah')">&times;</span>
+    <h2>Tun Fatimah</h2>
+    <p><strong>Jawatan:</strong> Srikandi & Isteri Bendahara Tun Mutahir (Kesultanan Melaka, abad ke-16)</p>
+
+    <p style="font-style: italic; color: #333; background: #fff3cd; padding: 12px 15px; border-left: 5px solid #ffcc00; border-radius: 8px; margin-top: 20px;">
+      "Tun Fatimah bukan sekadar lambang kecantikan, tetapi juga kekuatan, kebijaksanaan dan pengorbanan demi negeri dan maruah keluarga."
+      <br>– <strong>Legenda Kesultanan Melaka</strong>
+    </p>
+
+    <img src="https://assets.nst.com.my/images/articles/aotfshort_olstftrq001a.jpg_1663322864.jpg" alt="Tun Fatimah" style="width: 100%; max-width: 400px; border: 4px solid #ffcc00; border-radius: 12px; margin: 15px auto; display: block;">
+
+    <h3>📅 Kronologi Kehidupan:</h3>
+    <ul style="padding-left: 20px;">
+      <li><strong>Abad ke-16:</strong> Hidup semasa pemerintahan Sultan Mahmud Shah</li>
+      <li><strong>Dilahirkan:</strong> Di Melaka, anak kepada Bendahara Tun Mutahir</li>
+      <li><strong>Peristiwa:</strong> Seluruh keluarganya dihukum bunuh akibat fitnah</li>
+      <li><strong>Perkahwinan:</strong> Diperisterikan oleh Sultan Mahmud Shah selepas tragedi</li>
+    </ul>
+
+    <h3>❓ Fakta Menarik:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Digelar srikandi Melaka kerana keberanian dan ketabahan menghadapi ujian hidup</li>
+      <li>Simbol wanita bangsawan yang cekal, bijak dan berani dalam sejarah Melayu</li>
+      <li>Kisahnya diabadikan dalam Sejarah Melayu dan hikayat tradisional</li>
+    </ul>
+
+    <p><strong>Sumbangan:</strong> Tun Fatimah menjadi lambang keberanian wanita Melayu. Walaupun keluarganya dihukum secara tidak adil, beliau tetap berperanan sebagai isteri raja yang setia dan bijaksana dalam menyatukan semula istana yang bergolak. Kisahnya menjadi inspirasi kepada wanita sehingga hari ini.</p>
+<h3>🎥 Video Tun Fatimah</h3>
+<iframe width="100%" height="250" src="https://www.youtube.com/embed/_yf6wzsppmE" 
+title="Video Tun Fatimah" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+<h3>🧠 Kuiz Tun Fatimah</h3>
+<form id="kuiz-fatimah">
+  <p>1. Tun Fatimah merupakan isteri kepada Sultan Melaka yang ke-berapa?</p>
+  <label><input type="radio" name="q1-fatimah" value="a"> Ke-3</label><br>
+  <label><input type="radio" name="q1-fatimah" value="b"> Ke-5</label><br>
+  <label><input type="radio" name="q1-fatimah" value="c"> Ke-8</label><br><br>
+
+  <p>2. Apakah nama bapa Tun Fatimah yang dihukum bunuh oleh Sultan Mahmud Shah?</p>
+  <label><input type="radio" name="q2-fatimah" value="a"> Tun Teja</label><br>
+  <label><input type="radio" name="q2-fatimah" value="b"> Tun Perak</label><br>
+  <label><input type="radio" name="q2-fatimah" value="c"> Tun Mutahir</label><br><br>
+
+  <p>3. Apa sifat yang paling dikenali pada Tun Fatimah dalam sejarah?</p>
+  <label><input type="radio" name="q3-fatimah" value="a"> Ketegasan sebagai panglima</label><br>
+  <label><input type="radio" name="q3-fatimah" value="b"> Kesetiaan dan ketabahan</label><br>
+  <label><input type="radio" name="q3-fatimah" value="c"> Kehebatan dalam peperangan</label><br><br>
+
+  <button type="button" onclick="semakKuizFatimah()">Semak Jawapan</button>
+</form>
+<div id="skor-fatimah" style="margin-top: 10px; font-weight: bold;"></div>
+
+  </div>
+</div>
+<!-- Popup Tok Janggut -->
+<div class="popup" id="popup-janggut">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('janggut')">&times;</span>
+    <h2>Tok Janggut</h2>
+    <p><strong>Nama sebenar:</strong> Haji Hassan bin Munas</p>
+    <p><strong>Asal:</strong> Pasir Puteh, Kelantan</p>
+    
+    <p style="font-style: italic; color: #333; background: #fffbe6; padding: 12px 15px; border-left: 5px solid #cc6600; border-radius: 8px; margin-top: 20px;">
+      "Kami tidak akan tunduk kepada penjajah. Tanah ini hak orang Melayu!"<br>
+      – <strong>Tok Janggut</strong>
+    </p>
+    
+    <img src="https://sejarahtokoh.wordpress.com/wp-content/uploads/2012/05/3003730984_d4d724fe75_z.jpg" alt="Tok Janggut" style="width: 100%; max-width: 400px; border: 4px solid #cc6600; border-radius: 12px; margin: 15px auto; display: block;">
+
+    <h3>📅 Kronologi Kehidupan:</h3>
+    <ul style="padding-left: 20px;">
+      <li><strong>1868:</strong> Dilahirkan di Kampung Jeram, Pasir Puteh</li>
+      <li><strong>Akhir 1800-an:</strong> Menuntut ilmu agama di Mekah</li>
+      <li><strong>1915:</strong> Mengetuai pemberontakan menentang British di Kelantan</li>
+      <li><strong>1915:</strong> Terbunuh dalam pertempuran dan mayatnya digantung oleh British</li>
+    </ul>
+
+    <h3>❇️ Perjuangan:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Menentang penjajahan British kerana campur tangan dalam sistem cukai</li>
+      <li>Simbol keberanian orang Melayu mempertahankan tanah air</li>
+      <li>Pemberontakan Tok Janggut dikenang sebagai kebangkitan rakyat Kelantan</li>
+    </ul>
+
+    <h3>❓ Fakta Menarik:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Digelar "Tok Janggut" kerana janggut panjangnya</li>
+      <li>Mayat beliau digantung terbalik di padang Pasir Puteh selama beberapa hari</li>
+      <li>Pernah menjadi guru agama dan dihormati oleh penduduk tempatan</li>
+    </ul>
+<h3>🎥 Video Berkaitan Tok Janggut</h3>
+<iframe width="100%" height="315" 
+src="https://www.youtube.com/embed/qxmJH-ToY8w" 
+title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+
+<h3>🧠 Kuiz Tok Janggut</h3>
+<form id="kuiz-janggut">
+  <p>1. Di manakah lokasi utama kebangkitan Tok Janggut?</p>
+  <label><input type="radio" name="q1-janggut" value="a"> Pahang</label><br>
+  <label><input type="radio" name="q1-janggut" value="b"> Kelantan</label><br>
+  <label><input type="radio" name="q1-janggut" value="c"> Perak</label><br><br>
+
+  <p>2. Siapakah penjajah yang ditentang oleh Tok Janggut?</p>
+  <label><input type="radio" name="q2-janggut" value="a"> Portugis</label><br>
+  <label><input type="radio" name="q2-janggut" value="b"> Jepun</label><br>
+  <label><input type="radio" name="q2-janggut" value="c"> British</label><br><br>
+
+  <p>3. Apakah kesudahan Tok Janggut dalam perjuangannya?</p>
+  <label><input type="radio" name="q3-janggut" value="a"> Diangkat sebagai sultan</label><br>
+  <label><input type="radio" name="q3-janggut" value="b"> Menyerah diri kepada British</label><br>
+  <label><input type="radio" name="q3-janggut" value="c"> Terbunuh dalam pertempuran</label><br><br>
+
+  <button type="button" onclick="semakKuizJanggut()">Semak Jawapan</button>
+</form>
+<div id="skor-janggut" style="margin-top: 10px; font-weight: bold;"></div>
+
+  </div>
+</div>
+<!-- Popup Mat Kilau -->
+<div class="popup" id="popup-kilau">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('kilau')">&times;</span>
+    <h2>Mat Kilau</h2>
+    <p><strong>Nama penuh:</strong> Mat Kilau bin Imam Rasu</p>
+    <p><strong>Asal:</strong> Kampung Pulau Tawar, Jerantut, Pahang</p>
+
+    <p style="font-style: italic; color: #333; background: #f9f0ff; padding: 12px 15px; border-left: 5px solid #9900cc; border-radius: 8px; margin-top: 20px;">
+      "Tidak akan ku biarkan tanah pusaka ini diinjak penjajah!"<br>
+      – <strong>Mat Kilau</strong>
+    </p>
+
+    <img src="https://sejarahtokoh.wordpress.com/wp-content/uploads/2012/05/235px-matkilau.jpg" alt="Mat Kilau" style="width: 100%; max-width: 400px; border: 4px solid #9900cc; border-radius: 12px; margin: 15px auto; display: block;">
+
+    <h3>📅 Kronologi Kehidupan:</h3>
+    <ul style="padding-left: 20px;">
+      <li><strong>1865:</strong> Dilahirkan di Jerantut, Pahang</li>
+      <li><strong>1891–1895:</strong> Memimpin pemberontakan menentang British bersama Tok Gajah & Dato Bahaman</li>
+      <li><strong>1895:</strong> Menghilangkan diri selepas ditewaskan</li>
+      <li><strong>1969:</strong> Muncul semula dan mengaku sebagai Mat Kilau di Masjid Pulau Tawar</li>
+      <li><strong>1970:</strong> Meninggal dunia dan dikebumikan di kampung asal</li>
+    </ul>
+
+    <h3>🔥 Sumbangan & Perjuangan:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Simbol penentangan terhadap penjajah British di Pahang</li>
+      <li>Digelar "Pahlawan Melayu Pahang"</li>
+      <li>Melaksanakan gerakan gerila di hutan</li>
+    </ul>
+
+    <h3>❓ Fakta Menarik:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Kemunculan semulanya mencetuskan kejutaan nasional</li>
+      <li>Diangkat sebagai legenda dalam sejarah Melayu moden</li>
+      <li>Filem "Mat Kilau: Kebangkitan Pahlawan" diinspirasikan darinya</li>
+    </ul>
+<h3>🎥 Video Berkaitan Mat Kilau</h3>
+<iframe width="100%" height="315" 
+src="https://www.youtube.com/embed/_pIDLWEdLGQ" 
+title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+
+<h3>🧠 Kuiz Mat Kilau</h3>
+<form id="kuiz-matkilau">
+  <p>1. Apakah negeri kelahiran Mat Kilau?</p>
+  <label><input type="radio" name="q1-mk" value="a"> Pahang</label><br>
+  <label><input type="radio" name="q1-mk" value="b"> Terengganu</label><br>
+  <label><input type="radio" name="q1-mk" value="c"> Perlis</label><br><br>
+
+  <p>2. Siapakah yang dibantu oleh Mat Kilau dalam menentang British?</p>
+  <label><input type="radio" name="q2-mk" value="a"> Dato Bahaman</label><br>
+  <label><input type="radio" name="q2-mk" value="b"> Tok Janggut</label><br>
+  <label><input type="radio" name="q2-mk" value="c"> Tun Teja</label><br><br>
+
+  <p>3. Tahun bilakah Mat Kilau muncul semula secara terbuka selepas lama menghilang?</p>
+  <label><input type="radio" name="q3-mk" value="a"> 1945</label><br>
+  <label><input type="radio" name="q3-mk" value="b"> 1970</label><br>
+  <label><input type="radio" name="q3-mk" value="c"> 1969</label><br><br>
+
+  <button type="button" onclick="semakKuizMatKilau()">Semak Jawapan</button>
+</form>
+<div id="skor-matkilau" style="margin-top: 10px; font-weight: bold;"></div>
+
+  </div>
+</div>
+
+<!-- Popup Dato Maharaja Lela -->
+<div class="popup" id="popup-maharaja">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('maharaja')">&times;</span>
+    <h2>Dato Maharaja Lela</h2>
+    <p><strong>Nama penuh:</strong> Dato Maharaja Lela Pandak Lam</p>
+    <p><strong>Asal:</strong> Pasir Salak, Perak</p>
+
+    <p style="font-style: italic; color: #333; background: #fff3f3; padding: 12px 15px; border-left: 5px solid #cc0033; border-radius: 8px; margin-top: 20px;">
+      "Jangan biarkan tanah air kita dipijak penjajah!"<br>
+      – <strong>Dato Maharaja Lela</strong>
+    </p>
+
+    <img src="https://sejarahtokoh.wordpress.com/wp-content/uploads/2012/05/pic-datoml1.jpg" alt="Dato Maharaja Lela" style="width: 100%; max-width: 400px; border: 4px solid #cc0033; border-radius: 12px; margin: 15px auto; display: block;">
+
+    <h3>📅 Kronologi Kehidupan:</h3>
+    <ul style="padding-left: 20px;">
+      <li><strong>1800-an:</strong> Dilahirkan di Pasir Salak, Perak</li>
+      <li><strong>1874:</strong> British mula campur tangan di Perak melalui Perjanjian Pangkor</li>
+      <li><strong>1875:</strong> Mengetuai pembunuhan Residen British, J.W.W. Birch</li>
+      <li><strong>1876:</strong> Ditangkap dan dihukum gantung di Taiping</li>
+    </ul>
+
+    <h3>🔥 Sumbangan & Perjuangan:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Menentang penjajahan British di Perak</li>
+      <li>Simbol penentangan awal terhadap kolonialisme Inggeris</li>
+      <li>Pembunuhan Birch menjadi titik penting dalam sejarah anti-penjajahan Malaysia</li>
+    </ul>
+
+    <h3>❓ Fakta Menarik:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Dikatakan menggunakan lembing untuk membunuh Birch semasa mandi di sungai</li>
+      <li>Monumen Peringatan Pasir Salak dibina untuk mengenang perjuangan beliau</li>
+      <li>Diabadikan dalam buku teks sejarah sebagai pejuang kemerdekaan awal</li>
+    </ul>
+<h3>🎥 Video Berkaitan Dato Maharaja Lela</h3>
+<iframe width="100%" height="315" 
+src="https://www.youtube.com/embed/VHwNF2UFwzg" 
+title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+
+<h3>🧠 Kuiz Dato’ Maharaja Lela</h3>
+<form id="kuiz-dml">
+  <p>1. Dato’ Maharaja Lela terkenal kerana menentang penjajahan mana?</p>
+  <label><input type="radio" name="q1-dml" value="a"> Belanda</label><br>
+  <label><input type="radio" name="q1-dml" value="b"> Jepun</label><br>
+  <label><input type="radio" name="q1-dml" value="c"> British</label><br><br>
+
+  <p>2. Siapakah Residen British yang dibunuh dalam peristiwa Pasir Salak?</p>
+  <label><input type="radio" name="q2-dml" value="a"> Birch</label><br>
+  <label><input type="radio" name="q2-dml" value="b"> Swettenham</label><br>
+  <label><input type="radio" name="q2-dml" value="c"> Maxwell</label><br><br>
+
+  <p>3. Apakah hukuman yang dikenakan terhadap Dato’ Maharaja Lela oleh British?</p>
+  <label><input type="radio" name="q3-dml" value="a"> Dibuang negeri</label><br>
+  <label><input type="radio" name="q3-dml" value="b"> Dipenjara seumur hidup</label><br>
+  <label><input type="radio" name="q3-dml" value="c"> Digantung sampai mati</label><br><br>
+
+  <button type="button" onclick="semakKuizDML()">Semak Jawapan</button>
+</form>
+<div id="skor-dml" style="margin-top: 10px; font-weight: bold;"></div>
+
+  </div>
+</div>
+
+<!-- Popup Tun Teja -->
+<div class="popup" id="popup-teja">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('teja')">&times;</span>
+    <h2>Tun Teja</h2>
+    <p><strong>Asal:</strong> Bentan (sekarang sebahagian Kepulauan Riau, Indonesia)</p>
+    <p><strong>Zaman:</strong> Kesultanan Melaka (abad ke-15)</p>
+
+    <p style="font-style: italic; color: #333; background: #fff0f9; padding: 12px 15px; border-left: 5px solid #cc3399; border-radius: 8px; margin-top: 20px;">
+      "Cinta dan pengorbanan adalah sebahagian daripada perjuangan wanita bangsawan."
+      <br>– <strong>Tun Teja</strong>
+    </p>
+
+    <img src="https://amnaj.wordpress.com/wp-content/uploads/2012/01/1254462-tun_teja_mousoleum_melaka-jpg.jpe" alt="Makam Tun Teja" style="width: 100%; max-width: 400px; border: 4px solid #cc3399; border-radius: 12px; margin: 15px auto; display: block;">
+
+    <h3>📜 Latar Belakang:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Anak Bendahara Seri Amar Diraja Bentan</li>
+      <li>Dipinang oleh Sultan Melaka tetapi didekati oleh Hang Tuah untuk tujuan politik</li>
+      <li>Dikenali sebagai wanita yang cantik, setia dan berani</li>
+    </ul>
+
+    <h3>💖 Peranan & Kisah:</h3>
+    <ul style="padding-left: 20px;">
+      <li>Dibawa ke Melaka untuk dikahwinkan dengan Sultan Mahmud Shah</li>
+      <li>Menjadi simbol kecantikan dan kesetiaan dalam Hikayat Hang Tuah</li>
+      <li>Meninggal dunia ketika dalam pelarian bersama Sultan selepas kejatuhan Melaka</li>
+    </ul>
+
+    <h3>🪦 Tempat Peringatan:</h3>
+    <p>Makam Tun Teja terletak di Merlimau, Melaka – sering diziarahi dan dijaga sebagai warisan sejarah.</p>
+<h3>🎥 Video Berkaitan Tun Teja</h3>
+<iframe width="100%" height="315" 
+src="https://www.youtube.com/embed/1LW8_tsq714" 
+title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+
+<h3>🧠 Kuiz Tun Teja</h3>
+<form id="kuiz-teja">
+  <p>1. Siapakah yang memikat hati Tun Teja untuk ke Melaka?</p>
+  <label><input type="radio" name="q1-teja" value="a"> Sultan Melaka</label><br>
+  <label><input type="radio" name="q1-teja" value="b"> Hang Tuah</label><br>
+  <label><input type="radio" name="q1-teja" value="c"> Tun Mamat</label><br><br>
+
+  <p>2. Di negeri manakah makam Tun Teja terletak?</p>
+  <label><input type="radio" name="q2-teja" value="a"> Perak</label><br>
+  <label><input type="radio" name="q2-teja" value="b"> Melaka</label><br>
+  <label><input type="radio" name="q2-teja" value="c"> Negeri Sembilan</label><br><br>
+
+  <p>3. Apakah sumbangan utama Tun Teja dalam sejarah?</p>
+  <label><input type="radio" name="q3-teja" value="a"> Memimpin peperangan</label><br>
+  <label><input type="radio" name="q3-teja" value="b"> Sebagai lambang kesetiaan wanita kepada negara</label><br>
+  <label><input type="radio" name="q3-teja" value="c"> Mengasaskan kerajaan Melaka</label><br><br>
+
+  </div>
+</div>
+
+<script>
+  function showPopup(id) {
+    document.getElementById('popup-' + id).style.display = 'flex';
+  }
+  function closePopup(id) {
+    document.getElementById('popup-' + id).style.display = 'none';
+  }
+</script>
+<script>
+  function semakKuizTunku() {
+    let skor = 0;
+
+    const q1 = document.querySelector('input[name="q1"]:checked');
+    const q2 = document.querySelector('input[name="q2"]:checked');
+    const q3 = document.querySelector('input[name="q3"]:checked');
+
+    if (q1 && q1.value === "B") skor++;
+    if (q2 && q2.value === "B") skor++;
+    if (q3 && q3.value === "C") skor++;
+
+    const result = document.getElementById("result-kuiz-tunku");
+
+    if (!q1 || !q2 || !q3) {
+      result.textContent = "⚠️ Sila jawab semua soalan sebelum semak.";
+      result.style.color = "orange";
+    } else {
+      result.textContent = `🎉 Anda mendapat ${skor} daripada 3 markah!`;
+      result.style.color = skor === 3 ? "green" : "blue";
+    }
+  }
+</script>
+<script>
+function semakKuizRazak() {
+  let skor = 0;
+
+  const jawapan = {
+    q1: "b",
+    q2: "b",
+    q3: "c"
+  };
+
+  for (let key in jawapan) {
+    const pilihan = document.querySelector(`input[name="${key}"]:checked`);
+    if (pilihan && pilihan.value === jawapan[key]) {
+      skor++;
+    }
+  }
+
+  const mesej = skor === 3
+    ? "Tahniah! Semua jawapan betul 🎉"
+    : `Skor anda: ${skor}/3. Cuba lagi!`;
+
+  document.getElementById("skor-razak").textContent = mesej;
+}
+</script>
+<script>
+function semakKuizHussein() {
+  let skor = 0;
+
+  const jawapan = {
+    "q1-hussein": "b",
+    "q2-hussein": "a",
+    "q3-hussein": "b"
+  };
+
+  for (let soalan in jawapan) {
+    const pilihan = document.querySelector(`input[name="${soalan}"]:checked`);
+    if (pilihan && pilihan.value === jawapan[soalan]) {
+      skor++;
+    }
+  }
+
+  const mesej = skor === 3
+    ? "Tahniah! Semua jawapan betul 🎉"
+    : `Skor anda: ${skor}/3. Cuba lagi!`;
+
+  document.getElementById("skor-hussein").textContent = mesej;
+}
+</script>
+
+<script>
+function semakKuizMahathir() {
+  let skor = 0;
+
+  const jawapan = {
+    "q1-mahathir": "b",
+    "q2-mahathir": "a",
+    "q3-mahathir": "b"
+  };
+
+  for (let soalan in jawapan) {
+    const pilihan = document.querySelector(`input[name="${soalan}"]:checked`);
+    if (pilihan && pilihan.value === jawapan[soalan]) {
+      skor++;
+    }
+  }
+
+  const mesej = skor === 3
+    ? "Tahniah! Semua jawapan betul 🎉"
+    : `Skor anda: ${skor}/3. Cuba lagi!`;
+
+  document.getElementById("skor-mahathir").textContent = mesej;
+}
+</script>
+<script>
+function semakKuizAbdullah() {
+  let skor = 0;
+
+  const jawapan = {
+    "q1-abdullah": "a",
+    "q2-abdullah": "b",
+    "q3-abdullah": "c"
+  };
+
+  for (let soalan in jawapan) {
+    const pilihan = document.querySelector(`input[name="${soalan}"]:checked`);
+    if (pilihan && pilihan.value === jawapan[soalan]) {
+      skor++;
+    }
+  }
+
+  const mesej = skor === 3
+    ? "Tahniah! Semua jawapan betul 🎉"
+    : `Skor anda: ${skor}/3. Cuba lagi!`;
+
+  document.getElementById("skor-abdullah").textContent = mesej;
+}
+</script>
+<script>
+function semakKuizNajib() {
+  let skor = 0;
+
+  const jawapan = {
+    "q1-najib": "a",
+    "q2-najib": "a",
+    "q3-najib": "a"
+  };
+
+  for (let soalan in jawapan) {
+    const pilihan = document.querySelector(`input[name="${soalan}"]:checked`);
+    if (pilihan && pilihan.value === jawapan[soalan]) {
+      skor++;
+    }
+  }
+
+  const mesej = skor === 3
+    ? "Tahniah! Semua jawapan betul 🎉"
+    : `Skor anda: ${skor}/3. Cuba lagi!`;
+
+  document.getElementById("skor-najib").textContent = mesej;
+}
+</script>
+<script>
+function semakKuizFatimah() {
+  let skor = 0;
+
+  const jawapan = {
+    "q1-fatimah": "c",
+    "q2-fatimah": "c",
+    "q3-fatimah": "b"
+  };
+
+  for (let soalan in jawapan) {
+    const pilihan = document.querySelector(`input[name="${soalan}"]:checked`);
+    if (pilihan && pilihan.value === jawapan[soalan]) {
+      skor++;
+    }
+  }
+
+  const mesej = skor === 3
+    ? "Tahniah! Semua jawapan betul 🎉"
+    : `Skor anda: ${skor}/3. Cuba lagi!`;
+
+  document.getElementById("skor-fatimah").textContent = mesej;
+}
+</script>
+<script>
+function semakKuizJanggut() {
+  let skor = 0;
+
+  const jawapan = {
+    "q1-janggut": "b",
+    "q2-janggut": "c",
+    "q3-janggut": "c"
+  };
+
+  for (let soalan in jawapan) {
+    const pilihan = document.querySelector(`input[name="${soalan}"]:checked`);
+    if (pilihan && pilihan.value === jawapan[soalan]) {
+      skor++;
+    }
+  }
+
+  const mesej = skor === 3
+    ? "Tahniah! Semua jawapan betul 🎉"
+    : `Skor anda: ${skor}/3. Cuba lagi!`;
+
+  document.getElementById("skor-janggut").textContent = mesej;
+}
+</script>
+<script>
+function semakKuizMatKilau() {
+  let skor = 0;
+
+  const jawapan = {
+    "q1-mk": "a",
+    "q2-mk": "a",
+    "q3-mk": "c"
+  };
+
+  for (let soalan in jawapan) {
+    const pilihan = document.querySelector(`input[name="${soalan}"]:checked`);
+    if (pilihan && pilihan.value === jawapan[soalan]) {
+      skor++;
+    }
+  }
+
+  const mesej = skor === 3
+    ? "Hebat! Semua jawapan anda tepat 🎯"
+    : `Skor anda: ${skor}/3. Jangan putus asa, cuba lagi!`;
+
+  document.getElementById("skor-matkilau").textContent = mesej;
+}
+</script>
+<script>
+function semakKuizDML() {
+  let skor = 0;
+
+  const jawapan = {
+    "q1-dml": "c",
+    "q2-dml": "a",
+    "q3-dml": "c"
+  };
+
+  for (let soalan in jawapan) {
+    const pilihan = document.querySelector(`input[name="${soalan}"]:checked`);
+    if (pilihan && pilihan.value === jawapan[soalan]) {
+      skor++;
+    }
+  }
+
+  const mesej = skor === 3
+    ? "Cemerlang! Semua jawapan betul 🎉"
+    : `Skor anda: ${skor}/3. Cuba lagi untuk capai markah penuh!`;
+
+  document.getElementById("skor-dml").textContent = mesej;
+}
+</script>
+<script>
+function semakKuizTeja() {
+  let skor = 0;
+
+  const jawapan = {
+    "q1-teja": "b",
+    "q2-teja": "b",
+    "q3-teja": "b"
+  };
+
+  for (let soalan in jawapan) {
+    const pilihan = document.querySelector(`input[name="${soalan}"]:checked`);
+    if (pilihan && pilihan.value === jawapan[soalan]) {
+      skor++;
+    }
+  }
+
+  const mesej = skor === 3
+    ? "Hebat! Semua jawapan betul 🎉"
+    : `Skor anda: ${skor}/3. Teruskan belajar sejarah kita!`;
+
+  document.getElementById("skor-teja").textContent = mesej;
+}
+</script>
+
+
+</body>
+</html>
